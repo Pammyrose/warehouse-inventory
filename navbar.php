@@ -119,7 +119,7 @@
         <a href="#">Mask with linear-gradient</a>
         <ul class="list">
             <li><a href="search.php">Home</a></li>
-            <li><a href="list.php">Suppliers</a></li>
+            <li><a href="supplier.php">Suppliers</a></li>
             <li><a href="list.php">In</a></li>
             <li><a href="list.php">Out</a></li>
             <li><a href="#">Logout</a></li>
