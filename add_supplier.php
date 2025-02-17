@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <style>
@@ -113,7 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- Name Input -->
                 <div class="form-group">
                     <label for="name">Supplier Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Supplier Name" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Supplier Name"
+                        required>
                 </div>
 
                 <!-- Preferences -->
@@ -122,35 +124,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div style="display: grid; grid-template-columns: 1fr; row-gap: 1rem;">
                         <!-- Preference 1 -->
                         <div class="checkbox-group">
-                            <input type="checkbox" id="checkbox1" name="preferences[]" value="Direct Materials - Beverage">
+                            <input type="checkbox" id="checkbox1" name="preferences[]"
+                                value="Direct Materials - Beverage">
                             <h6>Direct Materials - Beverage</h6>
                         </div>
 
                         <!-- Preference 2 -->
                         <div class="checkbox-group">
-                            <input type="checkbox" id="checkbox2" name="preferences[]" value="Direct Materials - Kitchen">
+                            <input type="checkbox" id="checkbox2" name="preferences[]"
+                                value="Direct Materials - Kitchen">
                             <h6>Direct Materials - Kitchen</h6>
                         </div>
 
                         <!-- Preference 3 -->
                         <div class="checkbox-group">
-                            <input type="checkbox" id="checkbox3" name="preferences[]" value="Direct Materials - Bakery">
+                            <input type="checkbox" id="checkbox3" name="preferences[]"
+                                value="Direct Materials - Bakery">
                             <h6>Direct Materials - Bakery</h6>
                         </div>
 
                         <!-- Add more preferences as needed -->
                         <div class="checkbox-group">
-                            <input type="checkbox" id="checkbox4" name="preferences[]" value="Supplies & Packaging - Kitchen">
+                            <input type="checkbox" id="checkbox4" name="preferences[]"
+                                value="Supplies & Packaging - Kitchen">
                             <h6>Supplies & Packaging - Kitchen</h6>
                         </div>
 
                         <div class="checkbox-group">
-                            <input type="checkbox" id="checkbox5" name="preferences[]" value="Supplies & Packaging - Beverage">
+                            <input type="checkbox" id="checkbox5" name="preferences[]"
+                                value="Supplies & Packaging - Beverage">
                             <h6>Supplies & Packaging - Beverage</h6>
                         </div>
 
                         <div class="checkbox-group">
-                            <input type="checkbox" id="checkbox6" name="preferences[]" value="Supplies & Packaging - Bakery">
+                            <input type="checkbox" id="checkbox6" name="preferences[]"
+                                value="Supplies & Packaging - Bakery">
                             <h6>Supplies & Packaging - Bakery</h6>
                         </div>
 

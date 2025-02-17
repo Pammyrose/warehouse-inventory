@@ -57,7 +57,8 @@ $result = pg_query($connection, $query);
     <title>Live Search Suppliers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body {
 
@@ -65,7 +66,10 @@ $result = pg_query($connection, $query);
             margin: 0;
             padding: 0;
             backdrop-filter: blur(1.5px);
+            overflow: hidden;
+            overflow-y: auto;
         }
+
 
 
         body::before {
@@ -79,12 +83,17 @@ $result = pg_query($connection, $query);
             /* Black overlay with 50% opacity */
             z-index: 0;
             /* Place below all content */
+
         }
 
         .content-wrapper {
             position: relative;
             z-index: 1;
             /* Place above the overlay */
+            overflow: hidden;
+            /* Allow content within to scroll if necessary */
+            max-height: 100vh;
+            box-sizing: border-box;
         }
 
         .search {
@@ -96,62 +105,71 @@ $result = pg_query($connection, $query);
 </head>
 
 <body>
-    <?php include("navbar.php"); ?>
-    <div class="bg-white content-wrapper flex items-start justify-center min-h-screen p-4">
-        <div class="mt-20 container min-w-full p-3 mx-auto rounded-md sm:p-4 dark:text-gray-800 dark:bg-gray-50 opacity-90">
-        <form method="POST">
-                <div class="grid grid-cols-2 gap-4">
-                    <input type="text" class="form-control w-full" id="name" name="name" placeholder="Supplier Name" required>
-                   
-                    <select class="form-control w-full" id="class" name="class" required>
-                    <option selected disabled>Classification</option>
-                    <option value="Direct Materials - Beverage">Direct Materials - Beverage</option>
-                    <option value="Direct Materials - Kitchen">Direct Materials - Kitchen</option>
-                    <option value="Direct Materials - Bakery">Direct Materials - Bakery</option>
-                    <option value="Supplies & Packaging - Kitchen">Supplies & Packaging - Kitchen</option>
-                    <option value="Supplies & Packaging - Beverage">Supplies & Packaging - Beverage</option>
-                    <option value="Supplies & Packaging - Bakery">Supplies & Packaging - Bakery</option>
-                    <option value="Janitorials">Janitorials</option>
-                    <option value="Office Supplies">Office Supplies</option>
-                    </select>
-                </div>
-                <button type="submit" class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
-            </form>   
-        <div class="flex justify-between items-center mb-3">
-                <h2 class="text-2xl font-semibold leading-tight">Suppliers</h2>
-                <div class=" relative text-gray-600 bg-white">
-                    <input id="searchInput" type="search" placeholder="Search" class="search mr-14 bg-gray-200 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
-                    <div class="rounded-lg bg-gray-300 absolute right-0 top-1 p-1 mr-16">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
-                    </div>
-                    <a href="supplier.php" class="rounded-lg bg-gray-300 absolute right-0 top-1 p-1 mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
+    <?php include("sidebar.php"); ?>
 
-                    </a>
+    <div class="ml-20">
+        <div class=" bg-white content-wrapper flex items-start justify-center min-h-screen p-4">
+            <div
+                class="mt-20 container min-w-full p-3 mx-auto rounded-md sm:p-4 dark:text-gray-800 dark:bg-gray-50 opacity-90">
+                <form method="POST">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" class="form-control w-full" id="name" name="name" placeholder="Supplier Name"
+                            required>
+
+                        <select class="form-control w-full" id="class" name="class" required>
+                            <option selected disabled>Classification</option>
+                            <option value="Direct Materials - Beverage">Direct Materials - Beverage</option>
+                            <option value="Direct Materials - Kitchen">Direct Materials - Kitchen</option>
+                            <option value="Direct Materials - Bakery">Direct Materials - Bakery</option>
+                            <option value="Supplies & Packaging - Kitchen">Supplies & Packaging - Kitchen</option>
+                            <option value="Supplies & Packaging - Beverage">Supplies & Packaging - Beverage</option>
+                            <option value="Supplies & Packaging - Bakery">Supplies & Packaging - Bakery</option>
+                            <option value="Janitorials">Janitorials</option>
+                            <option value="Office Supplies">Office Supplies</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+                </form>
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-2xl font-semibold leading-tight">Suppliers</h2>
+                    <div class=" relative text-gray-600 bg-white">
+                        <input id="searchInput" type="search" placeholder="Search"
+                            class="search mr-14 bg-gray-200 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
+                        <div class="rounded-lg bg-gray-300 absolute right-0 top-1 p-1 mr-16">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </div>
+                        <a href="supplier.php" class="rounded-lg bg-gray-300 absolute right-0 top-1 p-1 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="min-w-full text-xs">
-                    <thead class="rounded-t-lg dark:bg-gray-300">
-                        <tr class="text-right">
-                            <th class="p-3 text-center">#</th>
-                            <th class="p-3 text-center">Supplier</th>
-                            <th class="p-3 text-center">Classification</th>
-                            <th class="p-3 text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="results">
-                    <tr>
-   
-    </tr>
-    <?php
-$counter = 1;
-while ($row = pg_fetch_assoc($result)) {
-    echo "<tr class='text-right border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-100'>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-xs">
+                        <thead class="rounded-t-lg dark:bg-gray-300">
+                            <tr class="text-right">
+                                <th class="p-3 text-center">#</th>
+                                <th class="p-3 text-center">Supplier</th>
+                                <th class="p-3 text-center">Classification</th>
+                                <th class="p-3 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results">
+                            <tr>
+
+                            </tr>
+                            <?php
+                            $counter = 1;
+                            while ($row = pg_fetch_assoc($result)) {
+                                echo "<tr class='text-right border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-100'>
             <td class='px-3 py-2 text-center'>$counter</td>
             <td class='px-3 py-2 text-center'>" . htmlspecialchars($row['name']) . "</td>
 <td class='px-3 py-2 text-center'>" . htmlspecialchars($row['class'] ?? 'N/A') . "</td>
@@ -182,12 +200,13 @@ while ($row = pg_fetch_assoc($result)) {
                 </form>
             </td>
         </tr>";
-    $counter++;
-}
-?>
+                                $counter++;
+                            }
+                            ?>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

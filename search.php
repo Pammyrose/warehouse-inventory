@@ -48,7 +48,8 @@ if (isset($_GET['ajax']) && isset($_GET['query'])) {
     <title>Search Functionality</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <style>
         .results {
@@ -97,13 +98,17 @@ if (isset($_GET['ajax']) && isset($_GET['query'])) {
     <?php include("navbar.php"); ?>
     <div class="bg-white content-wrapper flex flex-col p-10 py-6 min-h-screen">
         <!-- Search Form -->
-        <div class="bg items-center justify-between w-full lg:w-1/2 flex rounded-full shadow-lg p-2 mt-20 mx-auto sticky opacity-80" style="top: 5px">
-            <input id="searchInput" class="font-bold uppercase rounded-full w-full py-4 pl-4 text-black bg-gray-100 leading-tight focus:outline-none focus:shadow-outline lg:text-lg text-sm" type="text" placeholder="Search Supplier">
+        <div class="bg items-center justify-between w-full lg:w-1/2 flex rounded-full shadow-lg p-2 mt-20 mx-auto sticky opacity-80"
+            style="top: 5px">
+            <input id="searchInput"
+                class="font-bold uppercase rounded-full w-full py-4 pl-4 text-black bg-gray-100 leading-tight focus:outline-none focus:shadow-outline lg:text-lg text-sm"
+                type="text" placeholder="Search Supplier">
         </div>
 
         <!-- Results Section -->
         <div id="resultsSection" class="flex flex-col gap-4 lg:p-4 p-2 rounded-lg m-2 hidden">
-            <div class="text-bg results lg:text-4xl md:text-xl text-lg lg:p-3 p-1 font-black text-border ">Products</div>
+            <div class="text-bg results lg:text-4xl md:text-xl text-lg lg:p-3 p-1 font-black text-border ">Products
+            </div>
             <div id="resultsGrid" class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 p-4"></div>
         </div>
 
@@ -115,7 +120,7 @@ if (isset($_GET['ajax']) && isset($_GET['query'])) {
         const resultsSection = document.getElementById("resultsSection");
         const resultsGrid = document.getElementById("resultsGrid");
 
-        searchInput.addEventListener("input", function() {
+        searchInput.addEventListener("input", function () {
             const query = searchInput.value.trim();
 
             if (query.length === 0) {
